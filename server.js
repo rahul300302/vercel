@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // Database connection
 mongoose
@@ -22,7 +22,7 @@ app.get("/",(req,res)=>{
 app.get("/signin", async(req, res) => {
     try {
         const {email ,password}= req.body
-        const hashedPassword = await bcrypt.hash(password, 12);
+        const hashedPassword = await bcrypt.hash(password.toString(), 12);
         console.log(email);
         const find = await User.find({ email: email })
         if (find.length > 0) {
