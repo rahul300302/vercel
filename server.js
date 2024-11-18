@@ -46,7 +46,7 @@ app.get("/signin", async(req, res) => {
 
 app.post("/hello", async(req, res) => {
     try {
-        const {email ,pasword}= req.body
+        const {email ,password}= req.body
         const hashedPassword = await bcrypt.hash(password, 12);
         console.log(email);
         const find = await User.find({ email: email })
