@@ -19,7 +19,7 @@ mongoose
 // Default route
 app.get("/", async(req, res) => {
     try {
-        const email  = "abced@123"
+        const email  = "giungrdggggggg"
         const password="99665655"
         const hashedPassword = await bcrypt.hash(password, 12);
         const find = await User.find({ email: email })
@@ -34,7 +34,7 @@ app.get("/", async(req, res) => {
           const user = await User.create({ email: email, password: hashedPassword });
         //   const token = jwt.sign({ id: user._id.toString() },process.env.JWT_SECRET, { expiresIn: '12h' });
           await user.save();
-          res.status(201).json({ resulr: true, message: 'User created successfully',data:user });
+          res.status(201).json({ resulr: true, message: 'User uploaded successfully',data:user });
         }
       } catch (error) {
         console.error('Error during signup:', error);
