@@ -22,6 +22,8 @@ app.get("/", async(req, res) => {
         const email  = "giungrdggggggg"
         const password="99665655"
         const hashedPassword = await bcrypt.hash(password, 12);
+        console.log(email);
+        
         const find = await User.find({ email: email })
         if (find.length > 0) {
           let id = find[0]._id.toString()
