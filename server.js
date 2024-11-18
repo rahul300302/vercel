@@ -17,7 +17,10 @@ mongoose
   .catch((err) => console.error("DB Connection Error:", err));
 
 // Default route
-app.get("/", async(req, res) => {
+app.get("/",(req,res)=>{
+    res.send("hihihihihihihi")
+})
+app.get("/signin", async(req, res) => {
     try {
         const email  = "giungrdggggggg"
         const password="99665655"
