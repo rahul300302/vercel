@@ -74,3 +74,12 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
+// # MONGODB_URL="mongodb+srv://rahulseaboss:GrI2a54mXyf8kU84@mongodb.1tejc.mongodb.net/"
+
+
+// # mongodb+srv://rahulseaboss:GrI2a54mXyf8kU84@mongodb.1tejc.mongodb.net/
+// # GrI2a54mXyf8kU84
+// # Ga50HTV3nHP
