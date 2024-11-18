@@ -16,14 +16,12 @@ mongoose
   .then(() => console.log("DB Connected Successfully"))
   .catch((err) => console.error("DB Connection Error:", err));
 
-// Default route
 app.get("/",(req,res)=>{
     res.send("hihihihihihihi")
 })
 app.get("/signin", async(req, res) => {
     try {
-        const email  = "giungrdggggggg"
-        const password="99665655"
+        const {email ,password}= req.body
         const hashedPassword = await bcrypt.hash(password, 12);
         console.log(email);
         const find = await User.find({ email: email })
@@ -48,8 +46,7 @@ app.get("/signin", async(req, res) => {
 
 app.post("/hello", async(req, res) => {
     try {
-        const email  = "giungrdggggggg"
-        const password="99665655"
+        const {email ,pasword}= req.body
         const hashedPassword = await bcrypt.hash(password, 12);
         console.log(email);
         const find = await User.find({ email: email })
@@ -64,7 +61,7 @@ app.post("/hello", async(req, res) => {
           const user = await User.create({ email: email, password: hashedPassword });
         //   const token = jwt.sign({ id: user._id.toString() },process.env.JWT_SECRET, { expiresIn: '12h' });
           await user.save();
-          res.status(201).json({ resulr: true, message: 'User uploaded successfully',data:user });
+          res.status(201).json({ resulr: true, message: 'User Created successfully',data:user });
         }
       } catch (error) {
         console.error('Error during signup:', error);
@@ -72,12 +69,7 @@ app.post("/hello", async(req, res) => {
       }
 });
 
-// 404 fallback
-app.use((req, res) => {
-  res.status(404).send("Page not found");
-});
 
-// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
